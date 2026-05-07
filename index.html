@@ -3,111 +3,712 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explore Gorongosa | Ecotourism Project</title>
+  <title>Explore Gorongosa</title>
   <style>
     :root {
-      --green-dark: #052e1b;
-      --green: #0f5f35;
-      --green-soft: #dcefdc;
-      --sand: #f5f1e8;
+      --dark-green: #06351f;
+      --green: #0f6b3c;
+      --light-green: #e7f4df;
+      --sand: #f6efe3;
       --cream: #fffaf0;
-      --text: #1f2933;
-      --muted: #5b655e;
+      --text: #1e2a24;
+      --muted: #5b665f;
       --white: #ffffff;
-      --shadow: 0 18px 45px rgba(5, 46, 27, 0.14);
+      --gold: #d9b76f;
+      --shadow: 0 18px 45px rgba(6, 53, 31, 0.15);
       --radius: 24px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: Arial, Helvetica, sans-serif; background: var(--sand); color: var(--text); line-height: 1.6; }
-    a { color: inherit; text-decoration: none; }
-    .navbar { position: sticky; top: 0; z-index: 100; background: rgba(5, 46, 27, 0.95); color: white; border-bottom: 1px solid rgba(255,255,255,0.15); backdrop-filter: blur(10px); }
-    .nav-inner { max-width: 1180px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 16px 22px; }
-    .logo { font-weight: 800; font-size: 1.1rem; letter-spacing: 0.4px; }
-    .nav-links { display: flex; gap: 20px; font-size: 0.95rem; font-weight: 700; }
-    .nav-links a:hover { color: #d9f99d; }
-    .hero { position: relative; min-height: 78vh; display: flex; align-items: center; overflow: hidden; color: white; background: linear-gradient(135deg, rgba(5,46,27,0.98), rgba(15,95,53,0.85)), url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1800&q=80"); background-size: cover; background-position: center; }
-    .hero::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 70% 25%, rgba(217,249,157,0.22), transparent 35%); }
-    .hero-content { position: relative; z-index: 2; max-width: 1180px; margin: auto; padding: 80px 22px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
-    .tag { display: inline-block; margin-bottom: 18px; padding: 8px 14px; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; background: rgba(255,255,255,0.12); font-weight: 700; font-size: 0.9rem; }
-    .hero h1 { font-size: clamp(3rem, 7vw, 6.5rem); line-height: 0.95; font-weight: 900; margin-bottom: 22px; }
-    .hero p { font-size: 1.3rem; max-width: 680px; color: #efffed; }
-    .hero-buttons { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
-    .button { display: inline-block; padding: 14px 22px; border-radius: 16px; font-weight: 800; transition: transform 0.2s ease, background 0.2s ease; }
-    .button:hover { transform: translateY(-3px); }
-    .button-primary { background: white; color: var(--green-dark); }
-    .button-outline { border: 1px solid rgba(255,255,255,0.45); color: white; }
-    .hero-card { background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.2); padding: 22px; border-radius: 32px; box-shadow: var(--shadow); backdrop-filter: blur(8px); }
-    .hero-card-inner { background: var(--cream); color: var(--green-dark); padding: 28px; border-radius: 24px; }
-    .hero-card-inner .emoji { font-size: 3rem; margin-bottom: 12px; }
-    .hero-card-inner h2 { font-size: 1.6rem; line-height: 1.2; }
-    .hero-card-inner p { color: var(--muted); font-size: 1rem; margin-top: 14px; }
-    section { scroll-margin-top: 80px; }
-    .section { max-width: 1180px; margin: auto; padding: 76px 22px; }
-    .section-white { background: white; }
-    .eyebrow { color: var(--green); text-transform: uppercase; letter-spacing: 0.22em; font-size: 0.8rem; font-weight: 900; margin-bottom: 10px; }
-    h2 { color: var(--green-dark); font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; margin-bottom: 18px; }
-    .intro-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 36px; align-items: start; }
-    .card { background: white; padding: 28px; border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid rgba(15,95,53,0.09); }
-    .intro-text { font-size: 1.12rem; line-height: 1.9; }
-    .center { text-align: center; }
-    .video-wrap { max-width: 920px; margin: 34px auto 0; background: var(--sand); padding: 18px; border-radius: 30px; box-shadow: var(--shadow); border: 1px solid rgba(15,95,53,0.12); }
-    .video-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 22px; background: #111; }
-    .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-    .caption { margin-top: 14px; color: var(--muted); font-size: 0.95rem; text-align: center; }
-    .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 36px; }
-    .column { border-radius: 30px; padding: 26px; box-shadow: var(--shadow); }
-    .do-column { background: var(--green-dark); color: white; }
-    .dont-column { background: #fff7df; color: var(--text); border: 1px solid #ead7a0; }
-    .column h3 { font-size: 2rem; margin-bottom: 20px; }
-    .rule-card { padding: 18px; border-radius: 18px; margin-bottom: 14px; }
-    .do-column .rule-card { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.12); }
-    .dont-column .rule-card { background: white; border: 1px solid rgba(138,90,43,0.1); }
-    .rule-card h4 { margin-bottom: 8px; font-size: 1.05rem; }
-    .do-column .rule-card h4 { color: #e4ffc2; }
-    .impact { background: var(--green-dark); color: white; }
-    .impact h2 { color: white; }
-    .impact .eyebrow { color: #d9f99d; }
-    .impact-text { max-width: 850px; margin: 22px auto 0; font-size: 1.25rem; line-height: 1.9; color: #ecfdf3; }
-    .three-grid, .examples-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 34px; }
-    .mini-card h3, .example-card h3 { color: var(--green-dark); margin-bottom: 12px; font-size: 1.3rem; }
-    .community-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 30px; }
-    .community-card { background: white; border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; border: 1px solid rgba(15,95,53,0.09); }
-    .community-card h3 { color: var(--green-dark); font-size: 1.35rem; margin-bottom: 12px; }
-    .community-card ul { list-style: none; }
-    .community-card li { margin-bottom: 10px; padding-left: 18px; position: relative; }
-    .community-card li::before { content: "•"; position: absolute; left: 0; color: var(--green); font-weight: bold; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--sand);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(6, 53, 31, 0.96);
+      color: white;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 16px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: #d9f99d;
+    }
+
+    .hero {
+      min-height: 78vh;
+      display: flex;
+      align-items: center;
+      color: white;
+      background:
+        linear-gradient(135deg, rgba(6, 53, 31, 0.96), rgba(15, 107, 60, 0.82)),
+        url("https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1800&q=80");
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 72% 28%, rgba(217, 249, 157, 0.22), transparent 34%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1180px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 84px 22px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(3.2rem, 7vw, 6.6rem);
+      line-height: 0.95;
+      font-weight: 900;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      color: #f2fff2;
+      font-size: 1.3rem;
+    }
+
+    .hero-buttons {
+      margin-top: 34px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 16px;
+      font-weight: 900;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-primary {
+      background: white;
+      color: var(--dark-green);
+    }
+
+    .button-outline {
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      color: white;
+    }
+
+    .hero-card {
+      padding: 24px;
+      border-radius: 32px;
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-card-inner {
+      padding: 30px;
+      border-radius: 24px;
+      background: var(--cream);
+      color: var(--dark-green);
+    }
+
+    .hero-card-inner h2 {
+      font-size: 1.65rem;
+      line-height: 1.22;
+      margin-bottom: 12px;
+    }
+
+    .hero-card-inner p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    section {
+      scroll-margin-top: 80px;
+    }
+
+    .section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 76px 22px;
+    }
+
+    .section-white {
+      background: white;
+    }
+
+    .eyebrow {
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.82rem;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      color: var(--dark-green);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 36px;
+      align-items: start;
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15, 107, 60, 0.09);
+    }
+
+    .intro-text {
+      font-size: 1.12rem;
+      line-height: 1.9;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .video-wrap {
+      max-width: 920px;
+      margin: 34px auto 0;
+      padding: 18px;
+      background: var(--sand);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15, 107, 60, 0.12);
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 22px;
+      background: #111;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .caption {
+      margin-top: 14px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .rules-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 36px;
+    }
+
+    .column {
+      border-radius: 30px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .do-column {
+      background: var(--dark-green);
+      color: white;
+    }
+
+    .dont-column {
+      background: #fff7df;
+      color: var(--text);
+      border: 1px solid #ead7a0;
+    }
+
+    .column h3 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .rule-card {
+      padding: 18px;
+      border-radius: 18px;
+      margin-bottom: 14px;
+    }
+
+    .do-column .rule-card {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .do-column .rule-card h4 {
+      color: #e4ffc2;
+    }
+
+    .dont-column .rule-card {
+      background: white;
+      border: 1px solid rgba(138, 90, 43, 0.1);
+    }
+
+    .rule-card h4 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .impact {
+      background: var(--dark-green);
+      color: white;
+    }
+
+    .impact h2 {
+      color: white;
+    }
+
+    .impact .eyebrow {
+      color: #d9f99d;
+    }
+
+    .impact-text {
+      max-width: 850px;
+      margin: 22px auto 0;
+      color: #ecfdf3;
+      font-size: 1.22rem;
+      line-height: 1.9;
+    }
+
+    .three-grid,
+    .examples-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .mini-card h3,
+    .example-card h3 {
+      color: var(--dark-green);
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+
+    .community-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .community-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15, 107, 60, 0.09);
+    }
+
+    .community-card h3 {
+      color: var(--dark-green);
+      font-size: 1.35rem;
+      margin-bottom: 12px;
+    }
+
+    .community-card ul {
+      list-style: none;
+    }
+
+    .community-card li {
+      position: relative;
+      margin-bottom: 10px;
+      padding-left: 18px;
+    }
+
+    .community-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    footer {
+      background: var(--dark-green);
+      color: white;
+      text-align: center;
+      padding: 34px 22px;
+      font-weight: 900;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-content,
+      .intro-grid,
+      .rules-grid,
+      .three-grid,
+      .community-grid,
+      .examples-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .section {
+        padding: 56px 18px;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <nav class="navbar"><div class="nav-inner"><a class="logo" href="#top">Explore Gorongosa</a><div class="nav-links"><a href="#intro">Intro</a><a href="#video">Video</a><a href="#rules">Rules</a><a href="#impact">Impact</a><a href="#community">Community</a><a href="#examples">Examples</a></div></div></nav>
-  <header id="top" class="hero"><div class="hero-content"><div><span class="tag">Ecotourism Project</span><h1>Explore Gorongosa</h1><p>A place where wildlife, ecosystems, and communities thrive together.</p><div class="hero-buttons"><a class="button button-primary" href="#intro">Start exploring</a><a class="button button-outline" href="#rules">Visitor rules</a></div></div><div class="hero-card"><div class="hero-card-inner"><div class="emoji">🌿</div><h2>Responsible tourism helps protect Gorongosa for future generations.</h2><p>Discover why this environment matters and how visitors can protect it.</p></div></div></div></header>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a class="logo" href="#top">Explore Gorongosa</a>
+      <div class="nav-links">
+        <a href="#intro">Intro</a>
+        <a href="#video">Video</a>
+        <a href="#rules">Rules</a>
+        <a href="#impact">Impact</a>
+        <a href="#community">Community</a>
+        <a href="#examples">Examples</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="top" class="hero">
+    <div class="hero-content">
+      <div>
+        <h1>Explore Gorongosa</h1>
+        <p>A place where wildlife, ecosystems, and communities thrive together.</p>
+        <div class="hero-buttons">
+          <a class="button button-primary" href="#intro">Start exploring</a>
+          <a class="button button-outline" href="#rules">Visitor rules</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-inner">
+          <h2>Responsible tourism helps protect Gorongosa for future generations.</h2>
+          <p>Discover why this environment matters and how visitors can protect it.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <main>
-    <section id="intro" class="section"><div class="intro-grid"><div><p class="eyebrow">Introduction</p><h2>A short, engaging intro to Gorongosa’s environment and why it matters</h2></div><div class="card intro-text"><p>Gorongosa is one of Mozambique’s most extraordinary natural places, filled with floodplains, forests, river, grassland and Mount Gorongosa’s rich rainforest habitats. It is home to thousands of plant and animal species and is known around the world as a powerful example of ecosystem recovery. Gorongosa matters not only because of its beauty and biodiversity, but because protecting it also supports science, conservation, and local communities. Every responsible visitor helps preserve this special place for future generations.</p></div></div></section>
-    <section id="video" class="section-white"><div class="section center"><p class="eyebrow">Video</p><h2>See Gorongosa in Action</h2><p>A short look at Gorongosa’s wildlife, landscapes, and conservation story.</p><div class="video-wrap"><div class="video-frame"><iframe src="https://www.youtube.com/embed/L6S5JlEIpSY" title="Gorongosa video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div><p class="caption">Video source: YouTube</p></div></div></section>
-    <section id="rules" class="section"><div class="center"><p class="eyebrow">Visitor Guide</p><h2>Rules and guidelines for visitors</h2><p>What to do and not do!</p></div><div class="rules-grid"><div class="column do-column"><h3>What to do:</h3>
-      <div class="rule-card"><h4>1. Follow your guide’s instructions</h4><p>Always listen to park rangers and guides. They are trained to keep you safe and minimize disturbance to wildlife.</p></div>
-      <div class="rule-card"><h4>2. Keep a respectful distance from wildlife</h4><p>Observe animals quietly and from afar. Use binoculars or zoom lenses instead of moving closer.</p></div>
-      <div class="rule-card"><h4>3. Stay on designated roads and trails</h4><p>Driving or walking off-route damages fragile habitats and can disturb animals.</p></div>
-      <div class="rule-card"><h4>4. Take only photos, leave only footprints</h4><p>Capture memories, but leave plants, rocks, and natural objects where you find them.</p></div>
-      <div class="rule-card"><h4>5. Dispose of waste responsibly</h4><p>Carry out everything you bring in. Use designated bins where available.</p></div>
-      <div class="rule-card"><h4>6. Support local communities</h4><p>Purchase locally made crafts, hire local guides, and respect village customs and traditions.</p></div>
-      <div class="rule-card"><h4>7. Travel quietly and patiently</h4><p>Lower voices, silence phones, and enjoy the natural sounds of the park.</p></div>
-      <div class="rule-card"><h4>8. Respect park timings and rules</h4><p>Enter and exit at approved times to protect both visitors and wildlife.</p></div></div>
-      <div class="column dont-column"><h3>What not to do:</h3>
-      <div class="rule-card"><h4>1. Do not feed wildlife</h4><p>Feeding animals changes their natural behaviour and can harm their health.</p></div>
-      <div class="rule-card"><h4>2. Do not litter</h4><p>Even biodegradable waste disrupts ecosystems and attracts animals to roads.</p></div>
-      <div class="rule-card"><h4>3. Do not leave your vehicle unless permitted</h4><p>Predators and large animals can be dangerous, even if they appear calm.</p></div>
-      <div class="rule-card"><h4>4. Do not make loud noises</h4><p>Avoid shouting, playing music, or revving engines. Noise stresses wildlife.</p></div>
-      <div class="rule-card"><h4>5. Do not remove plants, animals, or cultural items</h4><p>Everything in the park is protected.</p></div>
-      <div class="rule-card"><h4>6. Do not smoke outside designated areas</h4><p>Fires spread quickly in dry landscapes and threaten wildlife and communities.</p></div>
-      <div class="rule-card"><h4>7. Do not use drones without permission</h4><p>Drones disturb animals and require special authorisation.</p></div>
-      <div class="rule-card"><h4>8. Do not approach local villages without guidance</h4><p>Respect privacy and follow cultural etiquette.</p></div></div></div></section>
-    <section id="impact" class="impact"><div class="section center"><p class="eyebrow">Impact</p><h2>Brief reasons behind the rules</h2><p class="impact-text">These rules are to be followed for the protection of the ecosystems, the locals and yourself. Making sure that everyone is safe during your visit is very important to us and we believe that by working together towards that goal a journey is necessary.</p></div></section>
-    <section id="community" class="section"><div class="center"><p class="eyebrow">Community</p><h2>Respect for local communities</h2><p>How visitors can be culturally sensitive</p></div><div class="three-grid"><div class="card mini-card"><h3>Conservation:</h3><p>By protecting Gongorosa's beautiful animals and landscapes, we ensure future generations have a chance to experience this special place.</p></div><div class="card mini-card"><h3>Respect for culture:</h3><p>By providing educational programs, health care, and agricultural support to families–we improve the well-being of local communities.</p></div><div class="card mini-card"><h3>Sustainable Tourism:</h3><p>By developing sustainable tourism, we create employment for local people and generate sustainable revenue for the park. Every guest that visits gorongosa plays a vital role in this amazing conservation effort.</p></div></div><div class="community-grid"><div class="community-card"><h3>Interact thoughtfully</h3><ul><li>Greet people politely</li><li>Ask permission before taking photos of individuals or homes.</li><li>Be mindful that many villages are not tourist attractions; they’re everyday living spaces.</li></ul></div><div class="community-card"><h3>Be respectful with photography</h3><ul><li>Avoid “poverty tourism” — don’t photograph people in vulnerable situations.</li><li>Always ask first, especially with children.</li><li>Respect a “no” without pushing.</li></ul></div><div class="community-card"><h3>Respect land and resources</h3><ul><li>Don’t wander into villages or farmland without invitation.</li><li>Avoid wasting water or food—resources can be limited in surrounding areas.</li><li>Stick to designated park areas unless guided.</li></ul></div><div class="community-card"><h3>Rethink giving</h3><ul><li>Don’t hand out money, sweets, or gifts directly to children.</li><li>This can create dependency or disrupt community dynamics.</li><li>If you want to help, support structured programs run through the park or trusted organizations.</li></ul></div><div class="community-card"><h3>Learn before you go</h3><ul><li>Understand a bit about Mozambique’s history, including the Mozambican Civil War, which shaped the region.</li><li>Be aware of cultural norms (modest dress, respectful behavior in rural areas).</li></ul></div></div></section>
-    <section id="design" class="section-white"><div class="section"><div class="design-box"><p class="eyebrow">Design</p><h2>Clear visuals, simple language, and creative design(AI)</h2><p>This website uses simple sections, nature colors, cards, and a video player to make the information easier to read and more engaging for visitors.</p></div></div></section>
-    <section id="examples" class="section"><div class="center"><p class="eyebrow">Bonus</p><h2>Real-life examples of responsible vs. irresponsible tourism</h2><p>optional — lucia</p></div><div class="examples-grid"><div class="card example-card"><h3>Maya Bay, Thailand</h3><p>Irresponsible tourism once involved large numbers of boats damaging coral reefs, tourists stepping on marine life, and pollution from fuel and trash. Because of this authorities introduced responsible tourism measures such as temporarily closing the bay, limiting daily visitors and preventing boats from landing directly on the beach.</p></div><div class="card example-card"><h3>Yellowstone National Park, USA</h3><p>Responsible tourism means staying on boardwalks near geothermal areas and keeping a safe distance from wildlife. Irresponsible tourism occurs when visitors approach animals for photos, feed wildlife or walk off designated paths which can harm both people and the environment.</p></div><div class="card example-card"><h3>Barcelona, Spain</h3><p>In Barcelona tourism also impacts the local community. Responsible tourism includes staying in licensed accommodation, supporting local businesses and respecting residents. Irresponsible tourism includes noisy behaviour, overcrowding, and short-term rentals reducing housing for locals, which has led to complaints and stricter tourism rules.</p></div></div></section>
+    <section id="intro" class="section">
+      <div class="intro-grid">
+        <div>
+          <p class="eyebrow">Introduction</p>
+          <h2>A short, engaging intro to Gorongosa’s environment and why it matters</h2>
+        </div>
+        <div class="card intro-text">
+          <p>
+            Gorongosa is one of Mozambique’s most extraordinary natural places, filled with floodplains, forests, river, grassland and Mount Gorongosa’s rich rainforest habitats. It is home to thousands of plant and animal species and is known around the world as a powerful example of ecosystem recovery. Gorongosa matters not only because of its beauty and biodiversity, but because protecting it also supports science, conservation, and local communities. Every responsible visitor helps preserve this special place for future generations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="video" class="section-white">
+      <div class="section center">
+        <p class="eyebrow">Video</p>
+        <h2>See Gorongosa in Action</h2>
+        <p>A short look at Gorongosa’s wildlife, landscapes, and conservation story.</p>
+
+        <div class="video-wrap">
+          <div class="video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/L6S5JlEIpSY"
+              title="Gorongosa video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <p class="caption">Video source: YouTube</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="rules" class="section">
+      <div class="center">
+        <p class="eyebrow">Visitor Guide</p>
+        <h2>Rules and guidelines for visitors</h2>
+        <p>What to do and not do!</p>
+      </div>
+
+      <div class="rules-grid">
+        <div class="column do-column">
+          <h3>What to do:</h3>
+
+          <div class="rule-card">
+            <h4>1. Follow your guide’s instructions</h4>
+            <p>Always listen to park rangers and guides. They are trained to keep you safe and minimize disturbance to wildlife.</p>
+          </div>
+
+          <div class="rule-card">
+            <h4>2. Keep a respectful distance from wildlife</h4>
+            <p>Observe animals quietly and from afar. Use binoculars or zoom lenses instead of moving closer.</p>
+          </div>
+
+          <div class="rule-card">
+            <h4>3. Stay on designated roads and trails</h4>
+            <p>Driving or walking off-route damages fragile habitats and can disturb animals.</p>
+          </div>
+
+          <div class="rule-card">
+            <h4>4. Take only photos, leave only footprints</h4>
+            <p>Capture memories, but leave plants, rocks, and natural objects where you find them.</p>
+          </div>
+
+          <div class="rule-card">
+            <h4>5. Dispose of waste responsibly</h4>
+            <p>Carry out everything you bring in. Use designated bins where available.</p>
+          </div>
+
+          <div class="rule-card">
+            <h4>6. Support local communities</h4>
+            <p>Purchase locally made crafts, hire local guides, and respect village customs and traditions.</p>
+          </div>
+
+          <div class="rule-card">
+            <h4>7. Travel quietly and patiently</h4>
+            <p>Lower voices, silence phones, and enjoy the natural sounds of the park.</p>
+          </div>
+
+          <div class="rule-card">
+            <h4>8. Respect park timings and rules</h4>
+            <p>Enter and exit at approved times to protect both visitors and wildlife.</p>
+          </div>
+        </div>
+
+        <div class="column dont-column">
+          <h3>What not to do:</h3>
+
+          <div class="rule-card">
+            <h4>1. Do not feed wildlife</h4>
+            <p>Feeding animals changes their natural behaviour and can harm their health.</p>
+          </div>
+
+          <div class="rule-card">
+            <h4>2. Do not litter</h4>
+            <p>Even biodegradable waste disrupts ecosystems and attracts animals to roads.</p>
+          </div>
+
+          <div class="rule-card">
+            <h4>3. Do not leave your vehicle unless permitted</h4>
+            <p>Predators and large animals can be dangerous, even if they appear calm.</p>
+          </div>
+
+          <div class="rule-card">
+            <h4>4. Do not make loud noises</h4>
+            <p>Avoid shouting, playing music, or revving engines. Noise stresses wildlife.</p>
+          </div>
+
+          <div class="rule-card">
+            <h4>5. Do not remove plants, animals, or cultural items</h4>
+            <p>Everything in the park is protected.</p>
+          </div>
+
+          <div class="rule-card">
+            <h4>6. Do not smoke outside designated areas</h4>
+            <p>Fires spread quickly in dry landscapes and threaten wildlife and communities.</p>
+          </div>
+
+          <div class="rule-card">
+            <h4>7. Do not use drones without permission</h4>
+            <p>Drones disturb animals and require special authorisation.</p>
+          </div>
+
+          <div class="rule-card">
+            <h4>8. Do not approach local villages without guidance</h4>
+            <p>Respect privacy and follow cultural etiquette.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="impact" class="impact">
+      <div class="section center">
+        <p class="eyebrow">Impact</p>
+        <h2>Brief reasons behind the rules</h2>
+        <p class="impact-text">
+          These rules are to be followed for the protection of the ecosystems, the locals and yourself. Making sure that everyone is safe during your visit is very important to us and we believe that by working together towards that goal a journey is necessary.
+        </p>
+      </div>
+    </section>
+
+    <section id="community" class="section">
+      <div class="center">
+        <p class="eyebrow">Community</p>
+        <h2>Respect for local communities</h2>
+        <p>How visitors can be culturally sensitive</p>
+      </div>
+
+      <div class="three-grid">
+        <div class="card mini-card">
+          <h3>Conservation:</h3>
+          <p>By protecting Gongorosa's beautiful animals and landscapes, we ensure future generations have a chance to experience this special place.</p>
+        </div>
+
+        <div class="card mini-card">
+          <h3>Respect for culture:</h3>
+          <p>By providing educational programs, health care, and agricultural support to families–we improve the well-being of local communities.</p>
+        </div>
+
+        <div class="card mini-card">
+          <h3>Sustainable Tourism:</h3>
+          <p>By developing sustainable tourism, we create employment for local people and generate sustainable revenue for the park. Every guest that visits gorongosa plays a vital role in this amazing conservation effort.</p>
+        </div>
+      </div>
+
+      <div class="community-grid">
+        <div class="community-card">
+          <h3>Interact thoughtfully</h3>
+          <ul>
+            <li>Greet people politely</li>
+            <li>Ask permission before taking photos of individuals or homes.</li>
+            <li>Be mindful that many villages are not tourist attractions; they’re everyday living spaces.</li>
+          </ul>
+        </div>
+
+        <div class="community-card">
+          <h3>Be respectful with photography</h3>
+          <ul>
+            <li>Avoid “poverty tourism” — don’t photograph people in vulnerable situations.</li>
+            <li>Always ask first, especially with children.</li>
+            <li>Respect a “no” without pushing.</li>
+          </ul>
+        </div>
+
+        <div class="community-card">
+          <h3>Respect land and resources</h3>
+          <ul>
+            <li>Don’t wander into villages or farmland without invitation.</li>
+            <li>Avoid wasting water or food—resources can be limited in surrounding areas.</li>
+            <li>Stick to designated park areas unless guided.</li>
+          </ul>
+        </div>
+
+        <div class="community-card">
+          <h3>Rethink giving</h3>
+          <ul>
+            <li>Don’t hand out money, sweets, or gifts directly to children.</li>
+            <li>This can create dependency or disrupt community dynamics.</li>
+            <li>If you want to help, support structured programs run through the park or trusted organizations.</li>
+          </ul>
+        </div>
+
+        <div class="community-card">
+          <h3>Learn before you go</h3>
+          <ul>
+            <li>Understand a bit about Mozambique’s history, including the Mozambican Civil War, which shaped the region.</li>
+            <li>Be aware of cultural norms (modest dress, respectful behavior in rural areas).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="examples" class="section-white">
+      <div class="section">
+        <div class="center">
+          <p class="eyebrow">Bonus</p>
+          <h2>Real-life examples of responsible vs. irresponsible tourism</h2>
+        </div>
+
+        <div class="examples-grid">
+          <div class="card example-card">
+            <h3>1. Maya Bay, Thailand</h3>
+            <p>Irresponsible tourism once involved large numbers of boats damaging coral reefs, tourists stepping on marine life, and pollution from fuel and trash. Because of this authorities introduced responsible tourism measures such as temporarily closing the bay, limiting daily visitors and preventing boats from landing directly on the beach.</p>
+          </div>
+
+          <div class="card example-card">
+            <h3>2. Yellowstone National Park, USA</h3>
+            <p>Responsible tourism means staying on boardwalks near geothermal areas and keeping a safe distance from wildlife. Irresponsible tourism occurs when visitors approach animals for photos, feed wildlife or walk off designated paths which can harm both people and the environment.</p>
+          </div>
+
+          <div class="card example-card">
+            <h3>3. Barcelona, Spain</h3>
+            <p>In Barcelona tourism also impacts the local community. Responsible tourism includes staying in licensed accommodation, supporting local businesses and respecting residents. Irresponsible tourism includes noisy behaviour, overcrowding, and short-term rentals reducing housing for locals, which has led to complaints and stricter tourism rules.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
-  <footer>Responsible tourism helps protect Gorongosa for future generations.</footer>
+
+  <footer>
+    Responsible tourism helps protect Gorongosa for future generations.
+  </footer>
 </body>
 </html>
